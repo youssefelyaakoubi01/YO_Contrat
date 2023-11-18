@@ -1,0 +1,142 @@
+<div class="row justify-content-center">
+  <div class="d-flex justify-content-center" *ngIf="col != null">
+    <div class="alert alert-success text-center col-md-4">
+      <span>Succées!</span>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-lg-4 mt-5">
+    <div class="login-wrap p-0">
+      <form
+        (ngSubmit)="saveForm()"
+        [formGroup]="registerForm"
+        class="signin-form"
+      >
+        <div class="form-group">
+          <label class="text-dark mb-2"></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nom*"
+            formControlName="lastName"
+            required
+          />
+          <div
+            class="alert alert-danger mt-1"
+            *ngIf="
+              lastName &&
+              lastName.invalid &&
+              lastName.touched &&
+              lastName.errors
+            "
+          >
+            <small>- Ce champ est obligatoire! </small>
+            <br />
+            <small
+              >- Le nom doit se contenir au moins un seul caractère!
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="text-dark mb-2"></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Prenom*"
+            formControlName="firstName"
+            required
+          />
+          <div
+            class="alert alert-danger mt-1"
+            *ngIf="firstName && firstName.invalid && firstName.touched"
+          >
+            <small>- Ce champ est obligatoire! </small>
+            <br />
+            <small>- Le prenom doit être 2 caractères au minimum ! </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="text-dark mb-2"></label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="E-Mail*"
+            formControlName="email"
+            required
+          />
+          <div
+            class="alert alert-danger mt-1"
+            *ngIf="email && email.invalid && email.touched"
+          >
+            <small>- Ce champ est obligatoire! </small>
+            <br />
+            <small>- Entrez un email valid ! </small>
+            <br />
+            <small>- Email doit se contient "*+A-Z@ .com/net...." ! </small>
+          </div>
+
+          <div
+            class="alert alert-danger mt-1"
+            role="alert"
+            *ngIf="rep != 'succees!' && rep != null"
+          >
+            <small>- {{ rep }} </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="" class="text-dark mb-2"></label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Mot de passe*"
+            formControlName="password"
+            required
+          />
+          <div
+            class="alert alert-danger mt-1"
+            *ngIf="password && password.invalid && password.touched"
+          >
+            <small>- Ce champ est obligatoire! </small>
+            <br />
+            <small>- Le mot de passe au minimum 5 caractères ! </small>
+            <br />
+            <small>- le mot de passe doit se contient "123 abc @*." ! </small>
+          </div>
+        </div>
+        <!-- Confirmer le mot de passe-->
+        <div class="form-group">
+          <label for="" class="text-dark mb-2"></label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Confirmer le Mot de passe*"
+            formControlName="password_confirmer"
+            required
+          />
+          <div
+            class="alert alert-danger mt-1"
+            *ngIf="
+              registerForm.value.password_confirmer !==
+                registerForm.value.password &&
+              password_confirmer.touched 
+            "
+          >
+            <small>- Les mots de passe saisis ne correspondent pas! </small>
+          </div>
+        </div>
+        <div class="form-group text-end">
+          <button
+            class="btn btn-light bg-dark text-white mt-3"
+            type="submit"
+            [disabled]=" registerForm.value.password_confirmer !==
+            registerForm.value.password || !registerForm.valid "
+          >
+            S'inscrire
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

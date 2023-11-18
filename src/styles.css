@@ -1,0 +1,8 @@
+body {
+    height: 100%; /* Utiliser 100vh pour occuper la hauteur complète de l'écran */
+    color: #fff;
+    background-image: url("./assets/images/handshake-close-up-cadres.jpg");
+    background-size: cover;
+    background-position: center; /* Centrer l'image sur l'arrière-plan */
+    background-repeat: non-repeat; /* Empêcher la répétition de l'image */
+}

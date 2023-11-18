@@ -1,0 +1,82 @@
+<div class="container col-md-6 mb-2 mt-5">
+  <span class="mb-2 text-infos" style="color: #262824d8; font-weight: bold"
+    >Choisir le type de votre contrat</span
+  >
+
+  <select
+    class="form-select"
+    aria-label="Default select example"
+    [(ngModel)]="choix"
+    value="type de contrat"
+  >
+    <option value="1" >CDD</option>
+    <option value="2">CDI</option>
+  </select>
+</div>
+
+<div class="container" *ngIf="choix == 1">
+  <app-cdd></app-cdd>
+</div>
+<div class="container" *ngIf="choix == 2">
+  <app-cdi></app-cdi>
+</div>
+<div class="card col-md-14 d-flex flex-row mt-4" style="background-color: #4e524ab9">
+  <div class="p-3 container" style="margin: auto">
+    <img
+      class="img"
+      src="https://img.freepik.com/vecteurs-libre/signature-illustration-concept-contrat_114360-4879.jpg"
+      alt=""
+    />
+  </div>
+  <div class="p-3 me-2">
+    <h3 style="color: white; font-weight: bold; font-family: serif">
+      Cadre général:
+    </h3>
+    <h2
+      style="
+        color: white;
+        font-weight: bold;
+        font-family: serif;
+        text-align: center;
+      "
+    >
+      Des contrats de travail au Maroc
+    </h2>
+
+    <div class="">
+      <p>
+        - Les contrats de travail sont des accords juridiques essentiels qui
+        régissent la relation entre l'employeur et l'employé. Au Maroc, comme
+        dans de nombreux autres pays, ils sont soumis à un certain nombre de
+        règles et de régulations visant à protéger les droits des travailleurs
+        tout en fournissant un cadre pour les employeurs pour gérer leurs
+        employés.
+      </p>
+    </div>
+    <p>
+      - Un contrat de travail au Maroc est défini comme un accord entre un
+      employeur et un travailleur dans lequel le travailleur s'engage à fournir
+      certains services sous la direction et le contrôle de l'employeur en
+      échange d'une rémunération (Code du Travail, Maroc, Article 13). Cette
+      définition englobe un large éventail de situations de travail, des
+      contrats à durée indéterminée (CDI), qui n'ont pas de date de fin précise,
+      aux contrats à durée déterminée (CDD), qui sont utilisés pour des emplois
+      de nature temporaire.
+    </p>
+    <div style="text-align: end" class="mt-3">
+      <i class="bi bi-file-earmark-text"></i>
+      <a class="navbar-brand text-white" style="padding-left: 2px">
+        <small>YO_Contrat</small>
+      </a>
+      <div>
+        <small>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Abbas_Mahamat_Tolli_signature.svg/2560px-Abbas_Mahamat_Tolli_signature.svg.png"
+            alt=""
+            style="height: 20%; width: 20%"
+        /></small>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

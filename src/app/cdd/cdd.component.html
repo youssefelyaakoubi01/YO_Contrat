@@ -1,0 +1,549 @@
+<br />
+<!-- Le formulaire -->
+<div class="d-flex justify-content-left">
+  <div class="card col-md-6" style="background-color: #2628245d">
+    <div>
+      <br />
+      <h1 class="text-center">La création du contrat de travail (CDD)</h1>
+      <form class="col-md-8 container" [formGroup]="cddForm">
+        <!-- Les données pour le employeur-->
+        <div *ngIf="choix == 0">
+          <br />
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 10%"
+              aria-valuenow="10"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <br />
+          <br />
+          <small style="text-align: center; font-weight: bold">
+            - Les informations pour l'employeur*
+          </small>
+
+          <div class="form-group">
+            <label class="mb-2 mt-2" for=""> Civilité </label>
+            <select formControlName="civilite_employe" class="form-select">
+              <option value="Madame">Madame</option>
+              <option value="Monsieur">Monsieur</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="mb-2 mt-2" for="name"> Nom </label>
+            <input
+              class="form-control"
+              formControlName="nom_employe"
+              readonly="readonly"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="mb-2"> Prenom</label>
+            <input
+              class="form-control"
+              formControlName="prenom_employe"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <label for="" class="mb-2"> Email</label>
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email_employe"
+              readonly="readonly"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="" class="mb-2"> Date de naissance</label>
+            <input
+              type="date"
+              class="form-control date"
+              formControlName="date_naissance_employe"
+            />
+          </div>
+
+          <div class="d-flex justify-content-end mb-2 mt-5">
+            <button (click)="suivant(1)" class="btn btn-primary">
+              Suivant
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="choix == 1">
+          <!--   -->
+          <br />
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 30%"
+              aria-valuenow="50"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <br />
+          <small style="text-align: center; font-weight: bold">
+            -Les informations pour le employe*
+          </small>
+          <br />
+          <div class="form-group">
+            <label for="" class="mb-2"> Lieu de naissance</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Lieu de naissance"
+              formControlName="lieu_naissance_employe"
+            />
+          </div>
+          <div class="">
+            <div class="form-group">
+              <label for="" class="mb-2"> Adresse</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Votre Adresse"
+                formControlName="adresse_employe"
+              />
+            </div>
+            <div class="form-group">
+              <label for="" class="mb-2"> Nationalité</label>
+              <input
+                type="text"
+                class="form-control mb-1"
+                placeholder="Votre Nationalité"
+                formControlName="nationalite_employe"
+              />
+            </div>
+            <div class="form-group">
+              <small style="font-weight: bold">
+                Quelle est la date de commencement du cdd ?</small
+              >
+              <input
+                type="date"
+                class="form-control date"
+                placeholder="la date de commencement du cdd"
+                formControlName="date_debut_employe"
+              />
+            </div>
+            <div class="form-group">
+              <small style="font-weight: bold">
+                Quelle est la date de fin du CDD ?</small
+              >
+              <input
+                type="date"
+                class="form-control date"
+                placeholder="la date de commencement du cdd"
+                formControlName="date_fin_employe"
+              />
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-left mt-2" style="display: block">
+            <button
+              (click)="suivant(0)"
+              class="btn btn-secondary"
+              style="text-align: end"
+            >
+              Précedent
+            </button>
+          </div>
+          <div class="d-flex justify-content-end mb-2">
+            <button (click)="suivant(2)" class="btn btn-primary">
+              Suivant
+            </button>
+          </div>
+        </div>
+
+        <!-- Les information sur l'employeur-->
+
+        <div *ngIf="choix == 2">
+          <br />
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 60%"
+              aria-valuenow="10"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <br />
+          <br />
+          <small style="text-align: center; font-weight: bold">
+            -Les informations sur l'employeur*
+          </small>
+
+          <div class="form-group">
+            <label class="mb-2 mt-2" for="name"> Nom de l'entreprise </label>
+            <input
+              class="form-control"
+              placeholder="Nom de l'entreprise"
+              formControlName="nom_entreprise"
+              type="text"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="mb-2 mt-2" for="name">
+              Nom du représentant de l'entreprise
+            </label>
+            <input
+              class="form-control"
+              placeholder="Nom du représentant de l'entreprise"
+              formControlName="nom_representant_entreprise"
+              type="text"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="mb-2"> Poste du représentant</label>
+            <input
+              class="form-control"
+              placeholder="Poste du représentant"
+              formControlName="poste_du_representant"
+            />
+          </div>
+          <div class="form-group">
+            <label for="" class="mb-2"> Adresse du siège social </label>
+            <input
+              type="text"
+              placeholder="Adresse du siège social"
+              class="form-control"
+              formControlName="adresse_du_siege_social"
+            />
+          </div>
+
+          <!--Les buttons pour suivant et précedent-->
+          <div class="d-flex justify-content-left mt-2" style="display: block">
+            <button
+              (click)="suivant(1)"
+              class="btn btn-secondary"
+              style="text-align: end"
+            >
+              Précedent
+            </button>
+          </div>
+          <div class="d-flex justify-content-end mb-2 mt-5">
+            <button (click)="suivant(3)" class="btn btn-primary">
+              Suivant
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="choix == 3">
+          <!--   -->
+          <br />
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 80%"
+              aria-valuenow="80"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <br />
+          <small style="text-align: center; font-weight: bold">
+            - Détails du contrat :*
+          </small>
+          <br />
+          <div class="">
+            <div class="form-group">
+              <label for="" class="mb-2"> Poste de l'employé</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Poste de l'employé"
+                formControlName="poste_de_employe"
+              />
+            </div>
+            <div class="form-group">
+              <label for="" class="mb-2">
+                Description des responsabilités et l'employé</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Description des responsabilités et tâches de l'employé"
+                formControlName="description_des_responsabilites_taches_de_employe"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="" class="mb-2"> Lieu de travail</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Lieu de travail"
+                formControlName="lieu_de_travail"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="" class="mb-2"> Rémunération (montant)</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Rémunération (montant)"
+                formControlName="remuneration_montant"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="" class="mb-2"> Rémunération (fréquence)</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Rémunération (fréquence)"
+                formControlName="remuneration_frequence"
+              />
+            </div>
+          </div>
+
+          <div></div>
+
+          <div></div>
+
+          <div class="d-flex justify-content-left mt-2" style="display: block">
+            <button
+              (click)="suivant(2)"
+              class="btn btn-secondary"
+              style="text-align: end"
+            >
+              Précedent
+            </button>
+          </div>
+          <div class="d-flex justify-content-end mb-2">
+            <button (click)="suivant(4)" class="btn btn-primary">
+              Suivant
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-2" *ngIf="choix == 4">
+          <br />
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 100%"
+              aria-valuenow="100"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <br />
+          <br />
+          <div class="form-group">
+            <label for="" class="mb-2">
+              Nombre d'heures de travail par semaine</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nombre d'heures de travail par semaine"
+              formControlName="temps_hebdomadaire"
+            />
+          </div>
+          <div class="form-group">
+            <label for="" class="mb-2">
+              Répartition des heures de travail (par jour, par semaine)</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Répartition des heures de travail (par jour, par semaine)"
+              formControlName="repartition_des_heures_de_travail"
+            />
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="" class="mb-2">
+                Nombre de jours de congé par an
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Nombre de jours de congé par an"
+                formControlName="nombre_de_jours_de_conge_par_an"
+              />
+            </div>
+          </div>
+          <div>
+            <div class="form-group">
+              <label for="" class="mb-2">
+                Période de préavis pour la résiliation du contrat</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Période de préavis pour la résiliation du contrat"
+                formControlName="periode_de_preavis"
+              />
+            </div>
+          </div>
+          <span style="color: white">
+            Cliquer "valider" pour confirmer votre données!
+          </span>
+          <div class="d-flex justify-content-left mt-5">
+            <button (click)="suivant(3)" class="btn btn-secondary">
+              Précedent
+            </button>
+          </div>
+
+          <div class="d-flex justify-content-end mb-2">
+            <button type="submit" class="btn btn-primary" (click)="downloadPDF()">
+              Valider
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-end ms-5">
+    <div class="card" style="background-color: #2628245d; border: solid 1px">
+      <h1 class="text-center mt-4" style="font-family: serif">
+        Apercu du Contrat (cdd)
+      </h1>
+      <div class="d-flex justify-content-center">
+        <img
+          src="https://img.uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png"
+          style="width: 30px; height: 30px"
+        />
+      </div>
+      <div
+        #content
+        class="card col-md-11 container mt-2 mb-2"
+        style="background-color: hsl(0, 0%, 100%)"
+      >
+        <div class="mt-5 mb-2 me-2 ms-2" id="cdd_contenu">
+          <h3>CONTRAT DU TRAVAIL À DURÉE DÉTERMINÉE</h3>
+          <div class="mt-5">
+            <span>Entre les soussignés :</span>
+            <span>
+              Employeur :
+              {{ this.cddForm.value.nom_entreprise || "_________" }} représentée
+              par
+              {{
+                this.cddForm.value.nom_representant_entreprise || "_________"
+              }}, en sa qualité de
+              {{ this.cddForm.value.poste_du_representant || "_________" }} ,
+              dont le siège social est à
+              {{
+                this.cddForm.value.adresse_du_siege_social || "_________"
+              }},</span
+            >
+            <span>Et,</span>
+            <span>
+              Employé : {{ this.cddForm.value.civilite_employe || "_________" }}
+              {{ this.cddForm.value.nom_employe || "_________" }}
+              {{ this.cddForm.value.prenom_employe || "_________" }}, né(e) le
+              {{ this.cddForm.value.date_naissance_employe || "_________" }} á
+              {{ this.cddForm.value.lieu_naissance_employe || "_________" }}
+              d'une nationalité
+              {{ this.cddForm.value.nationalite_employe || "_________" }},
+              demeurant à
+              {{ this.cddForm.value.adresse_employe || "_________" }}, Il a été
+              convenu ce qui suit :
+            </span>
+            <br>
+            <h5>Article 1-Poste</h5>
+            <span>
+              L'employé est embauché en qualité de
+              {{ this.cddForm.value.poste_de_employe || "_________" }}, avec les
+              responsabilités et les tâches associées à ce poste. (
+              {{
+                this.cddForm.value
+                  .description_des_responsabilites_taches_de_employe
+              }}
+              )</span>
+            
+            <h5>Article 2-Lieu de travail</h5>
+            <span>
+              Le lieu de travail sera
+              {{ this.cddForm.value.lieu_de_travail || "_________" }}.
+            </span>
+            <h5>Article 3 - Rémunération</h5>
+            <span>
+              L'employé recevra une rémunération de
+              {{ this.cddForm.value.remuneration_montant || "________[Montant]" }} dhs par {{
+                this.cddForm.value.remuneration_frequence || "_______[Fréquence de paiement]"
+              }} mois.</span
+            >
+            <h5>Article 4 - Durée du travail</h5>
+            <span>
+              Ce contrat est conclu pour une durée déterminée, à compter du
+              {{
+                this.cddForm.value.date_debut_employe || "_________"
+              }}
+              jusqu'au {{ this.cddForm.value.date_fin_employe || "_________" }}.
+              <br>L'employé travaillera
+              {{ this.cddForm.value.temps_hebdomadaire || "_________" }} heurs
+              par semaine, réparties comme suit :
+              {{
+                this.cddForm.value.repartition_des_heures_de_travail ||
+                  "_________"
+              }}
+              heurs par jour.</span
+            >
+            <h5>Article 5 - Congés</h5>
+            <span>
+              L'employé aura droit à
+              {{
+                this.cddForm.value.nombre_de_jours_de_conge_par_an ||
+                  "_________"
+              }}
+              jours de congé par an.
+            </span>
+            <h5>Article 6 - Résiliation</h5>
+            <span>
+              Le présent contrat peut être résilié par l'une ou l'autre des
+              parties avec un préavis de
+              {{ this.cddForm.value.periode_de_preavis || "_________" }} mois.
+            </span>
+            <span style="text-align: end"
+              >Fait à ______________, le _______/____/___ ,
+            </span>
+            <span
+              >Signature de l'employeur
+              <p>_____________</p>
+            </span>
+
+            <span
+              >Signature de l'employé
+              <p>_____________</p></span
+            >
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary mb-3" (click)="downloadPDF()">
+        Télécharger ce contrat en PDF!
+      </button>
+    </div>
+  </div>
+</div>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+  integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+  crossorigin="anonymous"
+></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+

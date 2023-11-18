@@ -1,0 +1,32 @@
+label {
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+h3{
+  font-family: serif;
+  margin-bottom: 20px;
+  font-size: medium;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+h5{
+  font-weight: bold;
+  color: black;
+  font-size: small;
+}
+span{
+  color: black;
+  display: block;
+  font-size: smaller;
+  margin-bottom: 6px;
+  margin-left: 5px;
+  
+}
+p {
+  margin-left: 14px;
+  color: black;
+  display: inline;
+  font-size: smaller;
+}

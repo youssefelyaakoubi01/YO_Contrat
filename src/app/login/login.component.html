@@ -1,0 +1,74 @@
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+        <img
+          src="./assets/images/user.webp"
+          style="border-radius: 20%; width: 130px; height: 130px"
+        />
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="login-wrap p-0">
+          <form
+            class="signin-form"
+            [formGroup]="loginform"
+            (ngSubmit)="loginFunction()"
+          >
+            <div class="form-group mb-3">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                formControlName="username"
+                required
+                
+              />
+              <div class="alert alert-danger mt-1" *ngIf="username.touched && username.invalid">
+                <small> - Entrez un email valide !</small>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <input
+                id="password-field"
+                type="password"
+                class="form-control"
+                placeholder="Mot de passe"
+                formControlName="password"
+                required
+              />
+      
+              <div class="alert alert-danger mt-1" *ngIf="password.touched && password.invalid">
+                <small> - Entrez un mot de passe valide !</small>
+              </div>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="etat != null">
+              {{ etat }}
+              <div class="form-group text-end" *ngIf="etat == 'Utilisateur n exsite pas !' ">
+                <button
+                routerLink="/inscription"
+                class=" bg-dark text-white"
+              >
+                S'inscrire
+              </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="submit"
+                class="form-control btn btn-primary submit px-3 mb-4"
+                [disabled]="!loginform.valid"
+              >
+                Se connecter
+              </button>
+            </div>
+          </form>
+          <div class="form-group text-end">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
